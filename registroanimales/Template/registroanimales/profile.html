@@ -1,0 +1,14 @@
+{% extends "registroanimales/padre.html" %}
+{% load static %}
+{% block tituloprincipal %}
+    <h1>Formulario- Editar perfil </h1>
+    <h4> Hola {{usuario}} ¿Qué datos le gustaría modificar? </h4>
+    <br>
+    <p>Cambiar solamente aquello que le gustaría modificar</p>
+    <form actiaon="{% url 'profile'%}" method="POST"> {% csrf_token %} 
+        <table>
+            {{miFormulario.as_table}}
+        </table>
+        <input type="submit",value="Enviar">
+    </form>
+{% endblock %}

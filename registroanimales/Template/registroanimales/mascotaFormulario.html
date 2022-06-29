@@ -1,0 +1,17 @@
+{% extends "registroanimales/padre.html" %}
+{% load static %}
+{% block tituloprincipal %}
+<h1>Formulario para mascotas </h1>
+{% if miFormulario.errors %}
+<p style="color:red"> Están mal los datos, por favor, revisar.</p>
+{% endif %} 
+<form action="" method="POST">{% csrf_token %}
+    <table>
+        {{miFormulario.as_table}}
+    </table>
+    <h8>El formato de la fecha es: aaaa-mm-dd</h8>
+    <br>
+    <br>
+    <input type="submit" value="Enviar">
+</form>
+{% endblock %}

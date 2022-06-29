@@ -1,0 +1,14 @@
+{% extends "registroanimales/padre.html" %}
+{% load static %}
+{% block tituloprincipal %}
+<h1>Formulario para usuarios </h1>
+{% if miFormulario.errors %}
+<p style="color:red"> Están mal los datos, por favor, revisar.</p>
+{% endif %} 
+<form action="" method="POST">{% csrf_token %}
+    <table>
+        {{miFormulario.as_table}}
+    </table>
+    <input type="submit" value="Enviar">
+</form>
+{% endblock %}

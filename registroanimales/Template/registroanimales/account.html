@@ -1,0 +1,47 @@
+{% extends "registroanimales/padre.html" %}
+{% load static %}
+{% block tituloprincipal %}
+    <h1> Mi Cuenta.</h1>
+    <p class="lead fw-normal text-muted mb-5">Desde aquí usted va a poder administrar la información sensible de su cuenta.</p>
+    {% if request.user.is_authenticated %}   
+        <h2 style=color:green> Bienvenido {{usuario}}!   <img height="40px" src="{{ruta.imagen.url}}"> </h2> 
+    {% endif %}
+    <h2 style=color:red>{{mensaje2}}</h2>
+    {% if not request.user.is_authenticated %}
+        <h2>¿Quiere iniciar sesión?</h2>
+        <a href="/registroanimales/account/login">
+        <button>Ir a Inicio de Sesión!</button>
+        </a>
+    {% endif %}
+    <br>
+    <br>
+    {% if not request.user.is_authenticated %}
+        <h2> ¿No está registrado?</h2>
+        <a href="/registroanimales/account/signup">
+        <button>Registrese!</button>
+        </a>
+    {% endif %}
+    {% if request.user.is_authenticated %}
+        <h2> ¿Quiere cambiar algún dato de su Usuario?</h2>
+            <a href="/registroanimales/account/profile">
+                <button>Editar mi perfil!</button>
+            </a>
+    {% endif %}
+    <br>
+    <br>
+    {% if request.user.is_authenticated %}
+        <h2>¿Quiere cambiar su avatar de perfil?</h2>
+        <a href="/registroanimales/agregarAvatar">
+        <button>Agregar avatar!</button>
+        </a>
+    {% endif %}
+        <br>
+        <br>
+        <br>
+    {% if request.user.is_authenticated %}
+        <h2>¿Quiere desloguearte?</h2>
+        <a href="/registroanimales/account/logout">
+        <button>Finalizar sesión!</button>
+        </a>
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends "registroanimales/padre.html" %}
+{% load static %}
+{% block tituloprincipal %}
+<body>
+    <h1> Por favor, Registrese aquí</h1>
+    <form action="" method="POST">
+        {% csrf_token %}
+        {{form.as_p}}
+        <button type="submit"> Registrarse </button>
+    </form>
+</body>
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends "registroanimales/padre.html" %}
+{% load static %}
+{% block tituloprincipal %}
+<h1>Tu mascota. </h1>
+<p class="lead fw-normal text-muted mb-5">Toda la información de tu mascota, en un solo lugar</p>
+<img src="https://th.bing.com/th/id/OIP.76fJ0OULISlQpFSuNXQilgHaEo?w=268&h=180&c=7&r=0&o=5&pid=1.7" width="300" height="160" alt="Tu mascota">
+<br>
+<br>
+<h3>¿Qué mascota quiere buscar?</h3>
+<!-- Poner una validación para que solo pueda ver las mascotas que son de él -->
+<form action="{% url 'buscar' %}" method="GET">
+    <input type="number" name="id_mascota" placeholder="ID de la mascota" id="id_mascota">
+    <input type="submit" value="Buscar">
+</form>
+<br>
+<br>
+<h3>¿Quiere registrar una nueva mascota?</h3>
+    <a href="/registroanimales/mascotaFormulario">
+    <button>Ingrese a su mascota!</button>
+    </a>
+    <br>
+    <br>
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends "registroanimales/padre.html" %}
+{% load static %}
+{% block tituloprincipal %}
+    <h1>Comunidad</h1>
+    <br>
+    <h3>Publicaciones del usuario {{username}}</h3>
+    <br>
+    {% if publicaciones %}
+    <ul>
+        {% for x in publicaciones %}
+        <li>Tema: {{x.tema}}</li>
+        <li>Publicación: {{x.publicacion}}</li>
+        <li>Autor:{{x.autor}}</li>
+        <img height="40px" src="{{url}}"> 
+        <li>Fecha de publicación: {{x.fecha_publicacion}}</li>
+        <br>
+        {% endfor %}
+    </ul>
+    {% endif %}
+    <br>
+    <br>
+    <h3>Hacer otra búsqueda</h3>
+        <a href="/registroanimales/comunidad">
+            <button>Buscar publicaciones de otro usuario</button>
+         </a>
+{% endblock %}

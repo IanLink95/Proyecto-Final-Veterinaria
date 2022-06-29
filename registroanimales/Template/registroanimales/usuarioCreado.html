@@ -1,0 +1,11 @@
+{% extends "registroanimales/padre.html" %}
+{% load static %}
+{% block tituloprincipal %}
+    <h1>{{mensaje}} </h1>
+    <br>
+    <br>
+    <h2>¿Quiere iniciar sesión?</h2>
+    <a href="/registroanimales/account/login">
+        <button>Ir a Inicio de Sesión!</button>
+     </a>
+{% endblock %}

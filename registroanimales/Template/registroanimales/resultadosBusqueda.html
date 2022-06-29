@@ -1,0 +1,35 @@
+{% extends "registroanimales/padre.html" %}
+{% load static %}
+{% block tituloprincipal %}
+    <h1>Tu mascota. </h1>
+    <br>
+    <h3> Resultados</h3>
+    <h4> Hola {{user.username}}, los datos de su mascota con ID {{id_mascota}} son:</h4>
+    {% if mascotas %}
+    <ul>
+        {% for x in mascotas %}
+                <li>Nombre: {{x.nombre}}</li>
+                <li>Fecha de nacimiento: {{x.fecha_nacimiento}}</li>
+                <li>Peso(kg):{{x.peso_kg}}</li>
+                <li>Altura(mts): {{x.altura_mts}}</li>
+                <br>
+        {% endfor %}
+    </ul>
+    {% endif %}
+    {{vacio}}
+    {% if consultas %}
+    <ul>
+        {% for y in consultas %}
+                <li>Fecha última consulta: {{y.fecha_consulta}}</li>
+                <li>Motivo: {{y.motivo_consulta}}</li>
+                <br>
+        {% endfor %}
+    </ul>
+    {% endif %}
+    <br>
+    <br>
+    <h3>Hacer otra búsqueda</h3>
+        <a href="/registroanimales/tuMascota">
+            <button>Buscar otra mascota</button>
+         </a>
+{% endblock %}

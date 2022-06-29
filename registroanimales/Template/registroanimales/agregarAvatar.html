@@ -1,0 +1,9 @@
+{% extends "registroanimales/padre.html" %}
+{% load static %}
+{% block tituloprincipal %}
+    <h1>Agregar avatar a tu perfil! </h1>
+    <form method="POST" enctype="multipart/form-data">{% csrf_token %}
+        {{miFormulario.as_p}}
+        <input type="submit" value="Actualizar">
+    </form>
+{% endblock %}
